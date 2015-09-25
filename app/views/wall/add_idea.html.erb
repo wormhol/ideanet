@@ -1,0 +1,18 @@
+<h4><%= flash[:alert] %></h4>
+
+<div style="background-color:#e9eaed;">
+	<h1>아이디어 추가하기</h1>
+	<div style="background-color: #ffffff; width: 400px; border: 2px solid #d3d6db; padding: 10px; word-break: break-all;">
+		<h1>참고 아이디어</h1>
+		<h3 style="color: blue;"><%= @ref_post.name %></h3>
+		<p><%= @ref_post.idea %></p>
+	</div><br>
+	<form action="/wall/add_idea_complete" method="post">
+		이름: <input type="text" name="name" placeholder="당신의 이름은?"><br>
+		태그: <input type="text" name="tag" placeholder="태그를 지정해주세요"><br>
+		추가 아이디어: <br>
+		<textarea name="idea" cols="40" rows="5" placeholder="새로운 아이디어를 추가해 주세요."></textarea>
+		<input type="hidden" name="ref_idea" value="<%= @ref_post.id  %>">
+		<input type="submit" value="입력">
+	</form>
+</div>

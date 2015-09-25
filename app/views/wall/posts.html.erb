@@ -1,8 +1,14 @@
 <div style="background-color: #e9eaed;">
 	<h1>최신 아이디어</h1>
-	<div style="background-color: #ffffff; width: 400px; border: 2px solid #d3d6db; padding: 10px; word-break: break-all;">
-		<h3 style="color: blue;"><%= @writer %></h3>
-		<p><%= @idea %></p>
-	</div><br>
-	<a href="/wall/write">이 아이디를 발전시켜보세요</a>
+		<% @posts.reverse.each do |post| %>
+		<div style="background-color: #ffffff; width: 400px; border: 2px solid #d3d6db; padding: 10px; word-break: break-all;">
+			아이디어 제공자: <h3 style="color: blue;"><%= post.name %></h3>
+			<p><%= post.idea %></p>
+			<p>태그: <%= post.tag %></p>
+			
+			<p style="font-size: 90%; text-align: right;"><a href="/wall/add_idea/<%= post.id %>">아이디어 추가</a></p>
+			<p style="font-size: 90%; text-align: right;"><a href="/wall/edit/<%= post.id %>">수정</a></p>
+		</div><br>
+		<% end %>
+	<a href="/wall/write">새로운 아이디어를 보여주세요!</a>
 </div>

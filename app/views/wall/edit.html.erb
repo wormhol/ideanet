@@ -1,0 +1,13 @@
+<h4><%= flash[:alert] %></h4>
+
+<div style="background-color:#e9eaed;">
+	<h1>아이디어 수정</h1>
+	<form action="/wall/edit_complete" method="post">
+		<input type="hidden" name = "id" value="<%= @post_edit.id %>">
+	  이름: <input type="text" name="name_edit" value="<%= @post_edit.name %>"><br>
+		태그: <input type="text" name="tag_edit" value="<%= @post_edit.tag %>"><br>
+		아이디어: <br>
+		<textarea name="idea_edit" cols="40" rows="5"><%= @post_edit.idea %></textarea>
+		<input type="submit" value="edit">
+	</form>
+</div>
